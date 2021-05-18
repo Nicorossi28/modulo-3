@@ -101,6 +101,7 @@
 
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(stars, platforms);
+        
 
         this.physics.add.overlap(player, stars, collectStar, null, this);
     }

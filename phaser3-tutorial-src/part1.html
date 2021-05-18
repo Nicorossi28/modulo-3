@@ -29,15 +29,21 @@
 
     function preload ()
     {
+        console.log('se carga al iniciar. Se ejecuta una vez')
         
     }
 
     function create ()
     {
-    }
+        console.log('se carga despues del preload. Se ejecuta una vez')
+    }    
 
     function update ()
     {
+        for (let index = 0; index < 10000; index++) {
+            
+        }
+        console.log('se ejecuta periodicamente (60 fps), hasta que se detenga la escena')
     }
 
 </script>

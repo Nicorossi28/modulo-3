@@ -68,7 +68,7 @@
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
-            frameRate: 10,
+            frameRate: 6,
             repeat: -1
         });
 
@@ -111,7 +111,8 @@
             player.anims.play('turn');
         }
 
-        if (cursors.up.isDown && (player.body.touching.down ||  (player.saltos < 1) ))
+        //if (cursors.up.isDown && (player.body.touching.down ||  (player.saltos < 1) ))
+        if (cursors.up.isDown && player.body.touching.down)
         {
             player.setVelocityY(-330);
             player.saltos += 1

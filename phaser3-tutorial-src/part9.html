@@ -36,8 +36,12 @@
     var stars;
     var platforms;
     var cursors;
+
     var score = 0;
     var scoreText;
+
+
+
 
     var game = new Phaser.Game(config);
 
@@ -101,7 +105,7 @@
 
         });
 
-        scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+        scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
         this.physics.add.collider(player, platforms);
         this.physics.add.collider(stars, platforms);
@@ -111,6 +115,8 @@
 
     function update ()
     {
+        
+
         if (cursors.left.isDown)
         {
             player.setVelocityX(-160);
@@ -140,7 +146,9 @@
     {
         star.disableBody(true, true);
 
-        score += 20;
+        //sumarle 20 al puntaje que ya tenia
+        //score = score + 20
+        score += 20;        
         scoreText.setText('Score: ' + score);
     }
 

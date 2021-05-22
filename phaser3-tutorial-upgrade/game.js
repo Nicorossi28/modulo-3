@@ -6,7 +6,7 @@ var config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 300 },
-            debug: true
+            debug: false
         }
     },
     scene: [Scene1, Scene2, Scene3]
@@ -28,4 +28,7 @@ var timedEvent;
 var initialTime;
 var timeText;
 
-var level = 0;
+var stars2;
+
+var x1 = 0;
+var tempText;

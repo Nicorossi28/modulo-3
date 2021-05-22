@@ -1,36 +1,50 @@
 class Scene3 extends Phaser.Scene {
     constructor() {
-      super("creditos");
+        super("creditos");
     }
 
-    preload ()
-    {
-      this.load.image('logo2D', 'assets/logo2D.png');   
+    preload() {
+        this.load.image('logo2D', 'assets/logo2D.png');
     }
-    
+
     create() {
-      this.add.image(400, 300, 'sky');
-      this.add.image(400, 568, 'ground').setScale(2)
-      this.add.image(400, 100, 'logo2D');
+        this.add.image(400, 300, 'sky2');
+        this.add.image(400, 568, 'ground').setScale(1)
+        this.add.image(400, 100, 'logo2D');
 
 
-      var puntajefinal = this.add.text(0, 0, 'Score: ' + score,  { fontFamily: 'Arial', fontSize: 70, color: '#000000' });
-      //scene.add.zone(x, y, width, height)
-        // X Y del centro del rectangulo invisible
-        // width, height del rectangulo invisible
-      Phaser.Display.Align.In.Center(puntajefinal, this.add.zone(400, 300, 800, 600));
+        var puntajefinal = this.add.text(0, 0, score, {
+            font: '80px Montserrat',
+            fill: '#ff0000',
+            shadow: {
+                offsetX: 3,
+                offsetY: 3,
+                color: '#ffffff',
+                blur: 5,
+                stroke: true,
+                fill: true
+            }
 
+        });
 
+        Phaser.Display.Align.In.Center(puntajefinal, this.add.zone(400, 300, 800, 600));
 
-      var restartButton = this.add.text(700, 500, 'Restart', { fontFamily: 'Arial', fontSize: 20, color: '#000000' })
-      .setInteractive()
-      .on('pointerdown', () => this.reiniciar() );
+        var datosfin = [
+            "UNRAF 2021",
+            "Programación 1",
+            "Docentes: Nicolás Nocete - Federico Degiovanni",
+            "Alumno: Nicolás Rossi"
+        ];
+        this.add.text(20, 390, datosfin, { font: '20px Montserrat', color: '#ffffff' })
+
+        var restartButton = this.add.text(660, 550, 'Restart', { font: '30px Montserrat', color: '#000000' })
+            .setInteractive()
+            .on('pointerdown', () => this.reiniciar());
     }
 
     reiniciar() {
-      this.scene.start('juego');
+        this.scene.start('juego');
+        this.sound.stopAll();
     }
 
-    
 }
-  
